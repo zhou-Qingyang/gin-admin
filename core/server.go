@@ -6,7 +6,6 @@ import (
 
 	"github.com/zhou-Qingzhang/gin-admin/global"
 	"github.com/zhou-Qingzhang/gin-admin/initialize"
-	"github.com/zhou-Qingzhang/gin-admin/service/system"
 	"go.uber.org/zap"
 )
 
@@ -21,12 +20,11 @@ func RunWindowsServer() {
 	}
 
 	// 从db加载jwt数据
-	if global.GVA_DB != nil {
-		system.LoadAll()
-	}
-
+	// if global.GVA_DB != nil {
+	// 	system.LoadAll()
+	// }
+	// Router.Static("/form-generator", "./resource/page")  生成代码的位置
 	Router := initialize.Routers()
-	Router.Static("/form-generator", "./resource/page")
 
 	address := fmt.Sprintf(":%d", global.GVA_CONFIG.System.Addr)
 	s := initServer(address, Router)

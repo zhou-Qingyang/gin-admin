@@ -33,7 +33,6 @@ import (
 func Routers() *gin.Engine {
 	Router := gin.Default()
 	systemRouter := router.RouterGroupApp.System
-	// exampleRouter := router.RouterGroupApp.Example
 
 	// 静态类型变量 初始化
 	Router.StaticFS(global.GVA_CONFIG.Local.Path, http.Dir(global.GVA_CONFIG.Local.StorePath)) // 为用户头像和文件提供静态地址
@@ -41,7 +40,7 @@ func Routers() *gin.Engine {
 	// swagger 文章初始化
 	docs.SwaggerInfo.BasePath = global.GVA_CONFIG.System.RouterPrefix
 	Router.GET(global.GVA_CONFIG.System.RouterPrefix+"/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	global.GVA_LOG.Info("register swagger handler")
+
 	// 方便统一添加路由组前缀 多服务器上线使用
 
 	PublicGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
@@ -51,10 +50,6 @@ func Routers() *gin.Engine {
 			c.JSON(http.StatusOK, "ok")
 		})
 	}
-	// {
-	// 	systemRouter.InitBaseRouter(PublicGroup) // 注册基础功能路由 不做鉴权
-	// 	systemRouter.InitInitRouter(PublicGroup) // 自动初始化相关
-	// }
 
 	//  私有方法
 	PrivateGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)

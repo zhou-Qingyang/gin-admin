@@ -29,6 +29,8 @@ func GormMysql() *gorm.DB {
 		sqlDB, _ := db.DB()
 		sqlDB.SetMaxIdleConns(m.MaxIdleConns)
 		sqlDB.SetMaxOpenConns(m.MaxOpenConns)
+		global.GVA_LOG.Info("mysql has initialized")
+
 		return db
 	}
 }
