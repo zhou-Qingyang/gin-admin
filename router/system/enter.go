@@ -2,12 +2,12 @@ package system
 
 type RouterGroup struct {
 	JwtRouter
+	UserRouter
 	// ApiRouter
 	// InitRouter
 	// SysRouter
 	// BaseRouter
 	// MenuRouter
-	// UserRouter
 	// CasbinRouter
 	// AutoCodeRouter
 	// AuthorityRouter

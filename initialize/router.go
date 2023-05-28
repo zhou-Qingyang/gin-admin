@@ -42,7 +42,6 @@ func Routers() *gin.Engine {
 	Router.GET(global.GVA_CONFIG.System.RouterPrefix+"/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// 方便统一添加路由组前缀 多服务器上线使用
-
 	PublicGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
 	{
 		// 健康监测
@@ -57,7 +56,7 @@ func Routers() *gin.Engine {
 	{
 		systemRouter.InitJwtRouter(PrivateGroup) // jwt相关路由
 		// systemRouter.InitApiRouter(PrivateGroup)                 // 注册功能api路由
-		// systemRouter.InitUserRouter(PrivateGroup)                // 注册用户路由
+		systemRouter.InitUserRouter(PrivateGroup) // 注册用户路由
 		// systemRouter.InitMenuRouter(PrivateGroup)                // 注册menu路由
 		// systemRouter.InitSystemRouter(PrivateGroup)              // system相关路由
 		// systemRouter.InitCasbinRouter(PrivateGroup)              // 权限相关路由
@@ -68,7 +67,6 @@ func Routers() *gin.Engine {
 		// systemRouter.InitSysOperationRecordRouter(PrivateGroup)  // 操作记录
 		// systemRouter.InitSysDictionaryDetailRouter(PrivateGroup) // 字典详情管理
 		// systemRouter.InitAuthorityBtnRouterRouter(PrivateGroup)  // 字典详情管理
-
 		// exampleRouter.InitCustomerRouter(PrivateGroup)              // 客户路由
 		// exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
 	}

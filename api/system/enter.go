@@ -4,8 +4,8 @@ import "github.com/zhou-Qingzhang/gin-admin/service"
 
 type ApiGroup struct {
 	JwtApi
+	BaseApi
 	// DBApi
-	// BaseApi
 	// SystemApi
 	// CasbinApi
 	// AutoCodeApi

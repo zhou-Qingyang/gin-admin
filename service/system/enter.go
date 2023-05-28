@@ -6,7 +6,6 @@ type ServiceGroup struct {
 	// ApiService
 	// MenuService
 	// UserService
-
 	// InitDBService
 	// AutoCodeService
 	// BaseMenuService
