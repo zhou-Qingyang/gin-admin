@@ -24,8 +24,8 @@ var (
 
 	GVA_LOG                 *zap.Logger
 	GVA_Concurrency_Control = &singleflight.Group{}
-	// GVA_Timer               timer.Timer = timer.NewTimerTask()
 
 	BlackCache local_cache.Cache
 	lock       sync.RWMutex
+	// GVA_Timer               timer.Timer = timer.NewTimerTask()
 )

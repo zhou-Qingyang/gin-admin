@@ -14,16 +14,19 @@ type server interface {
 }
 
 func RunWindowsServer() {
+	//初始化
+	initialize.OtherInit()
+
 	if global.GVA_CONFIG.System.UseMultipoint || global.GVA_CONFIG.System.UseRedis {
 		// 初始化redis服务
 		initialize.Redis()
 	}
-
 	// 从db加载jwt数据
 	// if global.GVA_DB != nil {
 	// 	system.LoadAll()
 	// }
 	// Router.Static("/form-generator", "./resource/page")  生成代码的位置
+
 	Router := initialize.Routers()
 
 	address := fmt.Sprintf(":%d", global.GVA_CONFIG.System.Addr)
