@@ -1,3 +1,0 @@
-[github.com/zhou-Qingzhang/gin-admin]2023/05/27 - 18:29:55.529	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:32	mysql has initialized
-[github.com/zhou-Qingzhang/gin-admin]2023/05/27 - 18:29:55.580	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:77	router register success
-[github.com/zhou-Qingzhang/gin-admin]2023/05/27 - 18:29:55.583	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:34	server run success on 	{"address": ":8888"}

@@ -1,5 +1,7 @@
 package system
 
+import "github.com/zhou-Qingzhang/gin-admin/service"
+
 type ApiGroup struct {
 	BaseApi
 	// JwtApi
@@ -18,9 +20,10 @@ type ApiGroup struct {
 }
 
 var (
-// jwtService = service.ServiceGroupApp.SystemServiceGroup.JwtService
-// menuService             = service.ServiceGroupApp.SystemServiceGroup.MenuService
-// userService             = service.ServiceGroupApp.SystemServiceGroup.UserService
+	// jwtService = service.ServiceGroupApp.SystemServiceGroup.JwtService
+	// menuService             = service.ServiceGroupApp.SystemServiceGroup.MenuService
+	userService = service.ServiceGroupApp.SystemServiceGroup.UserService
+
 // initDBService           = service.ServiceGroupApp.SystemServiceGroup.InitDBService
 // casbinService           = service.ServiceGroupApp.SystemServiceGroup.CasbinService
 // autoCodeService         = service.ServiceGroupApp.SystemServiceGroup.AutoCodeService

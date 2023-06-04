@@ -1,11 +1,12 @@
 package system
 
 type ServiceGroup struct {
+	UserService
 	JwtService
 	CasbinService // 第三方 权限
+
 	// ApiService
 	// MenuService
-	// UserService
 	// InitDBService
 	// AutoCodeService
 	// BaseMenuService

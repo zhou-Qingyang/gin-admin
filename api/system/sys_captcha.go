@@ -43,6 +43,7 @@ func (b *BaseApi) Captcha(c *gin.Context) {
 	// 生成默认数字的driver
 	driver := base64Captcha.NewDriverDigit(global.GVA_CONFIG.Captcha.ImgHeight, global.GVA_CONFIG.Captcha.ImgWidth, global.GVA_CONFIG.Captcha.KeyLong, 0.7, 80)
 
+	// 这个是什么意思
 	cp := base64Captcha.NewCaptcha(driver, store)
 
 	id, b64s, err := cp.Generate()

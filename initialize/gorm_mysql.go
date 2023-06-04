@@ -10,7 +10,6 @@ import (
 )
 
 // GormMysql 初始化Mysql数据库
-
 func GormMysql() *gorm.DB {
 	m := global.GVA_CONFIG.Mysql
 	if m.Dbname == "" {

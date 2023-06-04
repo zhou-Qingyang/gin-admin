@@ -31,25 +31,37 @@ func (g *_gorm) Config(prefix string, singular bool) *gorm.Config {
 		DisableForeignKeyConstraintWhenMigrating: true,
 	}
 
-	_default := logger.New(NewWriter(log.New(os.Stdout, "\r\n", log.LstdFlags)), logger.Config{
-		SlowThreshold: 200 * time.Millisecond,
-		LogLevel:      logger.Warn,
-		Colorful:      true,
-	})
+	// 创建默认日志记录器
+	defaultLogger := logger.Default
+
 	var logMode DBBASE
 	logMode = &global.GVA_CONFIG.Mysql
 
 	switch logMode.GetLogMode() {
 	case "silent", "Silent":
-		config.Logger = _default.LogMode(logger.Silent)
+		config.Logger = defaultLogger.LogMode(logger.Silent)
 	case "error", "Error":
-		config.Logger = _default.LogMode(logger.Error)
+		config.Logger = defaultLogger.LogMode(logger.Error)
 	case "warn", "Warn":
-		config.Logger = _default.LogMode(logger.Warn)
+		config.Logger = defaultLogger.LogMode(logger.Warn)
 	case "info", "Info":
-		config.Logger = _default.LogMode(logger.Info)
+		config.Logger = defaultLogger.LogMode(logger.Info)
 	default:
-		config.Logger = _default.LogMode(logger.Info)
+		config.Logger = defaultLogger.LogMode(logger.Info)
 	}
+
+	// 创建新的日志记录器并输出到控制台
+	newLogger := logger.New(
+		log.New(os.Stdout, "\r\n", log.LstdFlags),
+		logger.Config{
+			SlowThreshold:             time.Second,
+			LogLevel:                  logger.Info,
+			IgnoreRecordNotFoundError: true,
+			Colorful:                  true,
+		},
+	)
+
+	config.Logger = newLogger
+
 	return config
 }

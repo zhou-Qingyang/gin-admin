@@ -31,7 +31,6 @@ func (jwtService *JwtService) JsonInBlacklist(jwtList system.JwtBlacklist) (err 
 //@description: 判断JWT是否在黑名单内部
 //@param: jwt string
 //@return: bool
-
 func (jwtService *JwtService) IsBlacklist(jwt string) bool {
 	_, ok := global.BlackCache.Get(jwt)
 	return ok
@@ -56,7 +55,6 @@ func (jwtService *JwtService) GetRedisJWT(userName string) (redisJWT string, err
 //@description: jwt存入redis并设置过期时间
 //@param: jwt string, userName string
 //@return: err error
-
 func (jwtService *JwtService) SetRedisJWT(jwt string, userName string) (err error) {
 	// 此处过期时间等于jwt过期时间
 	dr, err := utils.ParseDuration(global.GVA_CONFIG.JWT.ExpiresTime)
