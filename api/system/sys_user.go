@@ -98,38 +98,4 @@ func (b *BaseApi) TokenNext(c *gin.Context, user system.SysUser) {
 		}, "登录成功", c)
 		return
 	}
-
-	//下面这个不管
-	// if jwtStr, err := jwtService.GetRedisJWT(user.Username); err == redis.Nil {
-	// 	if err := jwtService.SetRedisJWT(token, user.Username); err != nil {
-	// 		global.GVA_LOG.Error("设置登录状态失败!", zap.Error(err))
-	// 		response.FailWithMessage("设置登录状态失败", c)
-	// 		return
-	// 	}
-	// 	response.OkWithDetailed(systemRes.LoginResponse{
-	// 		User:      user,
-	// 		Token:     token,
-	// 		ExpiresAt: claims.StandardClaims.ExpiresAt * 1000,
-	// 	}, "登录成功", c)
-	// } else if err != nil {
-	// 	global.GVA_LOG.Error("设置登录状态失败!", zap.Error(err))
-	// 	response.FailWithMessage("设置登录状态失败", c)
-	// } else {
-	// 	var blackJWT system.JwtBlacklist
-	// 	blackJWT.Jwt = jwtStr
-	// 	if err := jwtService.JsonInBlacklist(blackJWT); err != nil {
-	// 		response.FailWithMessage("jwt作废失败", c)
-	// 		return
-	// 	}
-	// 	if err := jwtService.SetRedisJWT(token, user.Username); err != nil {
-	// 		response.FailWithMessage("设置登录状态失败", c)
-	// 		return
-	// 	}
-	// 	response.OkWithDetailed(systemRes.LoginResponse{
-	// 		User:      user,
-	// 		Token:     token,
-	// 		ExpiresAt: claims.StandardClaims.ExpiresAt * 1000,
-	// 	}, "登录成功", c)
-	// }
-
 }

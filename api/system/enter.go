@@ -12,7 +12,7 @@ type ApiGroup struct {
 	// SystemApiApi
 	// AuthorityApi
 	// DictionaryApi
-	// AuthorityMenuApi
+	AuthorityMenuApi
 	// OperationRecordApi
 	// AutoCodeHistoryApi
 	// DictionaryDetailApi
@@ -20,10 +20,9 @@ type ApiGroup struct {
 }
 
 var (
-	// jwtService = service.ServiceGroupApp.SystemServiceGroup.JwtService
-	// menuService             = service.ServiceGroupApp.SystemServiceGroup.MenuService
+	menuService = service.ServiceGroupApp.SystemServiceGroup.MenuService
 	userService = service.ServiceGroupApp.SystemServiceGroup.UserService
-
+	// jwtService = service.ServiceGroupApp.SystemServiceGroup.JwtService
 // initDBService           = service.ServiceGroupApp.SystemServiceGroup.InitDBService
 // casbinService           = service.ServiceGroupApp.SystemServiceGroup.CasbinService
 // autoCodeService         = service.ServiceGroupApp.SystemServiceGroup.AutoCodeService

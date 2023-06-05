@@ -1,0 +1,1 @@
+[github.com/zhou-Qingzhang/gin-admin]2023/06/05 - 00:32:47.476	[31merror[0m	C:/Users/15202/Desktop/Demo/gin-admin/api/system/sys_menu.go:27	获取失败!	{"error": "Error 1054 (42S22): Unknown column 'sys_authority_btns.deleted_at' in 'where clause'"}
