@@ -7,7 +7,7 @@ type PageInfo struct {
 	Keyword  string `json:"keyword" form:"keyword"`   //关键字
 }
 
-// GetById Find by id structure
+// 一般是根据 id删除的
 type GetById struct {
 	ID int `json:"id" form:"id"` // 主键ID
 }
@@ -24,5 +24,3 @@ type IdsReq struct {
 type GetAuthorityId struct {
 	AuthorityId uint `json:"authorityId" form:"authorityId"` // 角色ID
 }
-
-type Empty struct{}

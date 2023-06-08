@@ -2,14 +2,15 @@ package system
 
 type RouterGroup struct {
 	BaseRouter
+	UserRouter
+	MenuRouter
+	AuthorityRouter
 	// ApiRouter
 	// InitRouter
 	// SysRouter
 	// BaseRouter
-	MenuRouter
 	// CasbinRouter
 	// AutoCodeRouter
-	// AuthorityRouter
 	// DictionaryRouter
 	// OperationRecordRouter
 	// DictionaryDetailRouter

@@ -32,6 +32,7 @@ import (
 
 func Routers() *gin.Engine {
 	Router := gin.Default()
+	// 才发现
 	systemRouter := router.RouterGroupApp.System
 
 	// 静态类型变量 初始化
@@ -56,17 +57,16 @@ func Routers() *gin.Engine {
 
 	//  私有方法
 	PrivateGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
-	// PrivateGroup.Use(middleware.JWTAuth()).Use(middleware.CasbinHandler())
 	PrivateGroup.Use(middleware.JWTAuth())
 	{
 		// systemRouter.InitJwtRouter(PrivateGroup) // jwt相关路由
-		// systemRouter.InitApiRouter(PrivateGroup)                 // 注册功能api路由
-		// systemRouter.InitUserRouter(PrivateGroup) // 注册用户路由
-		systemRouter.InitMenuRouter(PrivateGroup) // 注册menu路由
+		// systemRouter.InitApiRouter(PrivateGroup) // 注册功能api路由
+		systemRouter.InitUserRouter(PrivateGroup)      // 注册用户路由
+		systemRouter.InitMenuRouter(PrivateGroup)      // 注册menu路由
+		systemRouter.InitAuthorityRouter(PrivateGroup) // 注册角色路由
 		// systemRouter.InitSystemRouter(PrivateGroup)              // system相关路由
 		// systemRouter.InitCasbinRouter(PrivateGroup)              // 权限相关路由
 		// systemRouter.InitAutoCodeRouter(PrivateGroup)            // 创建自动化代码
-		// systemRouter.InitAuthorityRouter(PrivateGroup)           // 注册角色路由
 		// systemRouter.InitSysDictionaryRouter(PrivateGroup)       // 字典管理
 		// systemRouter.InitAutoCodeHistoryRouter(PrivateGroup)     // 自动化代码历史
 		// systemRouter.InitSysOperationRecordRouter(PrivateGroup)  // 操作记录
@@ -75,7 +75,6 @@ func Routers() *gin.Engine {
 		// exampleRouter.InitCustomerRouter(PrivateGroup)              // 客户路由
 		// exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
 	}
-
 	global.GVA_LOG.Info("router register success")
 	return Router
 }

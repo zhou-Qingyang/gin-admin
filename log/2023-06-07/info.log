@@ -1,0 +1,9 @@
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 01:30:49.817	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 01:30:49.876	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:80	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 01:30:49.884	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 01:44:23.274	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 01:44:23.335	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:80	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 01:44:23.347	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 23:39:05.800	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 23:39:05.860	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:80	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/07 - 23:39:05.865	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}

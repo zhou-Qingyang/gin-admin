@@ -1,7 +1,7 @@
 package system
 
 import (
-	uuid "github.com/satori/go.uuid"
+	uuid "github.com/gofrs/uuid"
 	"github.com/zhou-Qingzhang/gin-admin/global"
 )
 

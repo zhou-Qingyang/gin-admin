@@ -2,7 +2,7 @@ package utils
 
 import (
 	"github.com/gin-gonic/gin"
-	uuid "github.com/satori/go.uuid"
+	uuid "github.com/gofrs/uuid"
 	"github.com/zhou-Qingzhang/gin-admin/global"
 	systemReq "github.com/zhou-Qingzhang/gin-admin/model/system/request"
 )

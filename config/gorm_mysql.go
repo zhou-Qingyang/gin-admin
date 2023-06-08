@@ -1,7 +1,6 @@
 package config
 
 // GeneralDB 也被 Pgsql 和 Mysql 原样使用
-// 数据库 共有类型
 type GeneralDB struct {
 	Path         string `mapstructure:"path" json:"path" yaml:"path"`                               // 服务器地址:端口
 	Port         string `mapstructure:"port" json:"port" yaml:"port"`                               //:端口
@@ -24,10 +23,6 @@ type Mysql struct {
 
 func (m *Mysql) Dsn() string {
 	return m.Username + ":" + m.Password + "@tcp(" + m.Path + ":" + m.Port + ")/" + m.Dbname + "?" + m.Config
-}
-
-func (m *Mysql) Dsn1() string {
-	return "root:123456@tcp(127.0.0.1:3306)/gva?charset=utf8mb4&parseTime=True&loc=Local"
 }
 
 func (m *Mysql) GetLogMode() string {
