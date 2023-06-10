@@ -9,3 +9,4 @@
 [github.com/zhou-Qingzhang/gin-admin]2023/06/08 - 00:37:40.271	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}
 [github.com/zhou-Qingzhang/gin-admin]2023/06/08 - 22:44:29.225	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
 [github.com/zhou-Qingzhang/gin-admin]2023/06/08 - 22:44:29.292	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:78	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/08 - 22:44:29.304	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}

@@ -1,0 +1,12 @@
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:03:57.026	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:03:57.107	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:71	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:03:57.113	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:39:35.324	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:39:35.398	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:71	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:39:35.407	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:44:39.533	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:44:39.619	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:71	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 12:44:39.633	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 18:09:26.852	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/gorm_mysql.go:31	mysql has initialized
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 18:09:26.966	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/initialize/router.go:71	router register success
+[github.com/zhou-Qingzhang/gin-admin]2023/06/10 - 18:09:26.977	[34minfo[0m	C:/Users/15202/Desktop/Demo/gin-admin/core/server.go:32	server run success on 	{"address": ":8888"}

@@ -308,3 +308,70 @@ func (b *BaseApi) GetUserInfo(c *gin.Context) {
 	}
 	response.OkWithDetailed(gin.H{"userInfo": ReqUser}, "获取成功", c)
 }
+
+// SetSelfInfo
+// @Tags      SysUser
+// @Summary   设置用户信息
+// @Security  ApiKeyAuth
+// @accept    application/json
+// @Produce   application/json
+// @Param     data  body      system.SysUser                                             true  "ID, 用户名, 昵称, 头像链接"
+// @Success   200   {object}  response.Response{data=map[string]interface{},msg=string}  "设置用户信息"
+// @Router    /user/SetSelfInfo [put]
+func (b *BaseApi) SetSelfInfo(c *gin.Context) {
+	var user systemReq.ChangeUserInfo
+	err := c.ShouldBindJSON(&user)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	user.ID = utils.GetUserID(c)
+	err = userService.SetSelfInfo(system.SysUser{
+		GVA_MODEL: global.GVA_MODEL{
+			ID: user.ID,
+		},
+		NickName:  user.NickName,
+		HeaderImg: user.HeaderImg,
+		Phone:     user.Phone,
+		Email:     user.Email,
+		SideMode:  user.SideMode,
+		Enable:    user.Enable,
+	})
+	if err != nil {
+		global.GVA_LOG.Error("设置失败!", zap.Error(err))
+		response.FailWithMessage("设置失败", c)
+		return
+	}
+	response.OkWithMessage("设置成功", c)
+}
+
+// ChangePassword
+// @Tags      SysUser
+// @Summary   用户修改密码
+// @Security  ApiKeyAuth
+// @Produce  application/json
+// @Param     data  body      systemReq.ChangePasswordReq    true  "用户名, 原密码, 新密码"
+// @Success   200   {object}  response.Response{msg=string}  "用户修改密码"
+// @Router    /user/changePassword [post]
+func (b *BaseApi) ChangePassword(c *gin.Context) {
+	var req systemReq.ChangePasswordReq
+	err := c.ShouldBindJSON(&req)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	err = utils.Verify(req, utils.ChangePasswordVerify)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	uid := utils.GetUserID(c)
+	u := &system.SysUser{GVA_MODEL: global.GVA_MODEL{ID: uid}, Password: req.Password}
+	_, err = userService.ChangePassword(u, req.NewPassword)
+	if err != nil {
+		global.GVA_LOG.Error("修改失败!", zap.Error(err))
+		response.FailWithMessage("修改失败，原密码与当前账户不符", c)
+		return
+	}
+	response.OkWithMessage("修改成功", c)
+}

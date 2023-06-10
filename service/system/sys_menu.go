@@ -206,3 +206,16 @@ func (menuService *MenuService) GetMenuAuthority(info *request.GetAuthorityId) (
 	// err = global.GVA_DB.Raw(sql, authorityId).Scan(&menus).Error
 	return menus, err
 }
+
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: GetBaseMenuTree
+//@description: 获取基础路由树
+//@return: menus []system.SysBaseMenu, err error
+func (menuService *MenuService) GetBaseMenuTree() (menus []system.SysBaseMenu, err error) {
+	treeMap, err := menuService.getBaseMenuTreeMap()
+	menus = treeMap["0"]
+	for i := 0; i < len(menus); i++ {
+		err = menuService.getBaseChildrenList(&menus[i], treeMap)
+	}
+	return menus, err
+}

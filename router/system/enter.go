@@ -5,14 +5,8 @@ type RouterGroup struct {
 	UserRouter
 	MenuRouter
 	AuthorityRouter
-	// ApiRouter
-	// InitRouter
-	// SysRouter
-	// BaseRouter
-	// CasbinRouter
-	// AutoCodeRouter
-	// DictionaryRouter
-	// OperationRecordRouter
-	// DictionaryDetailRouter
-	// AuthorityBtnRouter
+	OperationRecordRouter
+	DictionaryRouter
+	DictionaryDetailRouter
+	SysRouter
 }
