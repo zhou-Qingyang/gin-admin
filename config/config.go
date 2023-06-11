@@ -13,7 +13,10 @@ type Server struct {
 	Mysql Mysql `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
 
 	// oss
-	Local Local `mapstructure:"local" json:"local" yaml:"local"`
+	Local      Local      `mapstructure:"local" json:"local" yaml:"local"`
+	Qiniu      Qiniu      `mapstructure:"qiniu" json:"qiniu" yaml:"qiniu"`
+	AliyunOSS  AliyunOSS  `mapstructure:"aliyun-oss" json:"aliyun-oss" yaml:"aliyun-oss"`
+	TencentCOS TencentCOS `mapstructure:"tencent-cos" json:"tencent-cos" yaml:"tencent-cos"`
 
 	// 定时任务
 	Timer Timer `mapstructure:"timer" json:"timer" yaml:"timer"`

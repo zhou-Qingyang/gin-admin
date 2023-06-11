@@ -1,9 +1,13 @@
 package api
 
-import "github.com/zhou-Qingzhang/gin-admin/api/system"
+import (
+	"github.com/zhou-Qingzhang/gin-admin/api/example"
+	"github.com/zhou-Qingzhang/gin-admin/api/system"
+)
 
 type ApiGroup struct {
-	SystemApiGroup system.ApiGroup
+	SystemApiGroup  system.ApiGroup
+	ExampleApiGroup example.ApiGroup
 }
 
 var ApiGroupApp = new(ApiGroup)

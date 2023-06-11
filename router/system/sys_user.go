@@ -17,10 +17,10 @@ func (s *UserRouter) InitUserRouter(Router *gin.RouterGroup) {
 		userRouter.DELETE("deleteUser", baseApi.DeleteUser)               // 删除用户
 		userRouter.PUT("setUserInfo", baseApi.SetUserInfo)                // 修改用户
 		userRouter.POST("setUserAuthorities", baseApi.SetUserAuthorities) // 设置用户权限组
-		// userRouter.POST("resetPassword", baseApi.ResetPassword)           // 设置用户权限组
-		userRouter.POST("changePassword", baseApi.ChangePassword) // 用户修改密码
-		userRouter.PUT("setSelfInfo", baseApi.SetSelfInfo)        // 设置自身信息
-		// userRouter.POST("setUserAuthority", baseApi.SetUserAuthority) 	 // 设置用户权限
+		userRouter.POST("changePassword", baseApi.ChangePassword)         // 用户修改密码
+		userRouter.PUT("setSelfInfo", baseApi.SetSelfInfo)                // 设置自身信息
+		userRouter.POST("setUserAuthority", baseApi.SetUserAuthority)     // 切换用户权限
+		userRouter.POST("resetPassword", baseApi.ResetPassword)           // 重新设置密码
 	}
 	{
 		userRouterWithoutRecord.POST("getUserList", baseApi.GetUserList) // 分页获取用户列表

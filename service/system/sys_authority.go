@@ -102,7 +102,6 @@ func (authorityService *AuthorityService) DeleteAuthority(auth *system.SysAuthor
 		if err != nil {
 			return
 		}
-		// err = db.Association("SysBaseMenus").Delete(&auth)
 	}
 	if len(auth.DataAuthorityId) > 0 {
 		err = global.GVA_DB.Model(auth).Association("DataAuthorityId").Delete(auth.DataAuthorityId)

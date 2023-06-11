@@ -1,6 +1,7 @@
 package system
 
 import (
+	"strconv"
 	"time"
 
 	"github.com/zhou-Qingzhang/gin-admin/global"
@@ -374,4 +375,76 @@ func (b *BaseApi) ChangePassword(c *gin.Context) {
 		return
 	}
 	response.OkWithMessage("修改成功", c)
+}
+
+// SetUserAuthority
+// @Tags      SysUser
+// @Summary   更改用户权限
+// @Security  ApiKeyAuth
+// @accept    application/json
+// @Produce   application/json
+// @Param     data  body      systemReq.SetUserAuth          true  "用户UUID, 角色ID"
+// @Success   200   {object}  response.Response{msg=string}  "设置用户权限"
+// @Router    /user/setUserAuthority [post]
+func (b *BaseApi) SetUserAuthority(c *gin.Context) {
+	var sua systemReq.SetUserAuth
+	err := c.ShouldBindJSON(&sua)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	if UserVerifyErr := utils.Verify(sua, utils.SetUserAuthorityVerify); UserVerifyErr != nil {
+		response.FailWithMessage(UserVerifyErr.Error(), c)
+		return
+	}
+	userID := utils.GetUserID(c)
+	err = userService.SetUserAuthority(userID, sua.AuthorityId)
+	if err != nil {
+		global.GVA_LOG.Error("修改失败!", zap.Error(err))
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	claims := utils.GetUserInfo(c)
+	j := &utils.JWT{SigningKey: []byte(global.GVA_CONFIG.JWT.SigningKey)} // 唯一签名
+	claims.AuthorityId = sua.AuthorityId
+	if token, err := j.CreateToken(*claims); err != nil {
+		global.GVA_LOG.Error("修改失败!", zap.Error(err))
+		response.FailWithMessage(err.Error(), c)
+	} else {
+		c.Header("new-token", token)
+		// 将时间戳转换为对应的时间
+		expiresAt := time.Unix(claims.ExpiresAt, 0)
+		// 将时间格式化为字符串（如 "2006-01-02 15:04:05"）
+		expiresAtStr := expiresAt.Format("2006-01-02 15:04:05")
+		// 将字符串转换为 int64 类型的 Unix 时间戳
+		expiresAtUnix, _ := strconv.ParseInt(expiresAtStr, 10, 64)
+		// 将 Unix 时间戳转换为字符串
+		expiresAtUnixStr := strconv.FormatInt(expiresAtUnix, 10)
+		c.Header("new-expires-at", expiresAtUnixStr)
+		response.OkWithMessage("修改成功", c)
+	}
+}
+
+// ResetPassword
+// @Tags      SysUser
+// @Summary   重置用户密码
+// @Security  ApiKeyAuth
+// @Produce  application/json
+// @Param     data  body      system.SysUser                 true  "ID"
+// @Success   200   {object}  response.Response{msg=string}  "重置用户密码"
+// @Router    /user/resetPassword [post]
+func (b *BaseApi) ResetPassword(c *gin.Context) {
+	var user system.SysUser
+	err := c.ShouldBindJSON(&user)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	err = userService.ResetPassword(user.ID)
+	if err != nil {
+		global.GVA_LOG.Error("重置失败!", zap.Error(err))
+		response.FailWithMessage("重置失败"+err.Error(), c)
+		return
+	}
+	response.OkWithMessage("重置成功", c)
 }

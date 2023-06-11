@@ -180,3 +180,28 @@ func (userService *UserService) ChangePassword(u *system.SysUser, newPassword st
 	return &user, err
 
 }
+
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: SetUserAuthority
+//@description: 设置一个用户的权限
+//@param: uuid uuid.UUID, authorityId string
+//@return: err error
+
+func (userService *UserService) SetUserAuthority(id uint, authorityId uint) (err error) {
+	assignErr := global.GVA_DB.Where("sys_user_id = ? AND sys_authority_authority_id = ?", id, authorityId).First(&system.SysUserAuthority{}).Error
+	if errors.Is(assignErr, gorm.ErrRecordNotFound) {
+		return errors.New("该用户无此角色")
+	}
+	err = global.GVA_DB.Where("id = ?", id).First(&system.SysUser{}).Update("authority_id", authorityId).Error
+	return err
+}
+
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: resetPassword
+//@description: 修改用户密码
+//@param: ID uint
+//@return: err error
+func (userService *UserService) ResetPassword(ID uint) (err error) {
+	err = global.GVA_DB.Model(&system.SysUser{}).Where("id = ?", ID).Update("password", utils.BcryptHash("123456")).Error
+	return err
+}
